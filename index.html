@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon"  href='img/tw.ico'type="image/x-icon" />
+    <title>Zenbatu</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome JS -->
+    <link rel="stylesheet" href="fontawesome-free-5.6.3-web/css/all.css">
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <!-- Popper.JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/chart.bundle.js"></script>
+
+    <script language="JavaScript" src="js/config.js" type="text/javascript"></script>
+    <script language="JavaScript" src="js/mqttws31.js" type="text/javascript"></script>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img class="mg-top-30" src="img/thomas-watt-color.svg">
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="./index.html">DashBoard</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageReseaumenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reseau Config</a>
+                    <ul class="collapse list-unstyled" id="pageReseaumenu">
+                        <li>
+                            <a href="./status.html">Status</a>
+                        </li>
+                        <li>
+                            <a href="./wifi.html">Connexion</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="./data-config.html">Data Configuration</a>
+                </li>
+                <li>
+                    <a href="#">Support technical</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="download">Contact Us</a>
+                </li>
+                <li>
+                    <a href="ThomasWatt" class="article">ThomasWatt</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mg-top-20">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Close</span>
+                    </button>
+
+
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                              <button class="btn btn-dark" id="buttonconnect">Connect</button>
+                              <button class="btn btn-dark" id="buttondisconnect">Disconnect</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid mg-top-30">
+
+              <!-- Start card -info -->
+              <div class = "row row-card-info">
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-1">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-wifi icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Connection</div>
+                        <h5 id="connection" class="texte-white text-align-right">No</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-2">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-users icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Person</div>
+                        <h5 id="person" class="texte-white text-align-right">0</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-3">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-volume-up icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Sound</div>
+                        <h5 id="sound" class="texte-white text-align-right">0</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-4">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-lightbulb icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Luminosity</div>
+                        <h5 id="luminosity" class="texte-white text-align-right">0</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-5">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-plug icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Power</div>
+                        <h5 id="power" class="texte-white text-align-right">0</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-2">
+                  <div class="card card-show bg-6">
+                    <div class="card-body row">
+                      <div class="col-3">
+                        <i class="fas fa-thermometer-quarter icon-card"></i>
+                      </div>
+                      <div class="col-9">
+                        <div class="texte-grey text-align-right">Temperature</div>
+                        <h5 id="temperature" class="texte-white text-align-right">0</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End card - info -->
+
+              <!-- Start Chart-graphe -->
+              <div class="row mg-top-10">
+                <div class="col-5">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class = "alignleft" id="nameViewer">Live video</h3>
+                      <p class = "alignright"><button type="button" id="heatmap" class="btn btn-dark mg-left-10">Heatmap</button></p>
+                      <p class = "alignright"><button type="button" id="livevideo" class="btn btn-dark mg-left-10">Live Video</button></p>
+                    </div>
+                    <div class="card-body">
+                      <div style="width:100%;">
+                        <canvas class="background" id='canvas' width="640" height="640"></canvas>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <p class = "alignleft">Setting</p>
+                      <p class = "alignright">
+                        <select class="form-control mg-left-10 pd-left-10" id="Size">
+                          <option value="dynamic">Dynamic</option>
+                          <option value="static">Static</option>
+                        </select>
+                      </p>                      
+                      <p class = "alignright">
+                        <select class="form-control mg-left-10 pd-left-10" id="Speed">
+                          <option value="non">No</option>
+                          <option value="oui">Yes</option>
+                        </select>
+                      </p>
+                      <p class = "alignright">
+                        <select onchange="show_heatmap()" class="form-control mg-left-10 pd-left-10" id="Rotation">
+                          <option value="0">0</option>
+                          <option value="90">90</option>
+                          <option value="180">180</option>
+                          <option value="270">270</option>
+                        </select>
+                      </p>
+                      <p class = "alignright">
+                        <select onchange="show_heatmap()" class="form-control mg-left-10 pd-left-10" id="Mirroir">
+                          <option value="non">No</option>
+                          <option value="vertical">Vertical</option>
+                          <option value="horizontal">Horizontal</option>
+                        </select>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- End live Stream -->
+                <!-- Start Rapport -->
+                <div class="col-7">
+                  <div class="card">
+                    <div class="card-header">
+                      <h3 class = "alignleft">People counting rapport</h3>
+                      <p class = "alignright">
+                        <select class="form-control mg-left-10 pd-left-10" id="chart_type_select">
+                          <option value="bar">Chart Bar</option>
+                          <option value="line">Chart Line</option>
+                        </select>
+                      </p>
+                    </div>
+                    <div class="card-body">
+                      <div style="width:100%;">
+                        <canvas class="" id="myChart" width="600" height="300"></canvas>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div id="myList"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End rapport -->
+              </div>
+            </div>
+          </div>
+              <!-- End Chargrapheo -->
+
+        </div>
+      </div>
+    </div>
+    <script language="JavaScript" src="js/simpleheat.js" type="text/javascript"></script>
+    <script language="JavaScript" src="js/mqttconnect.js" type="text/javascript"></script>
+
+    <!-- Graphs -->
+  <script>
+    $(document).ready(function () {
+      document.getElementById("livevideo").disabled = true;
+      need_show_heatmap = false;
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+      $('#chart_type_select').on('change', function() {
+        draw_chart( this.value );
+      });
+      $('#livevideo').on('click', function() {
+        document.getElementById("livevideo").disabled = true;
+        document.getElementById("heatmap").disabled = false;
+        document.getElementById("nameViewer").innerHTML ="Live Video";
+        clear();
+        need_show_heatmap = false;
+      });
+      $('#heatmap').on('click', function() {
+        document.getElementById("heatmap").disabled = true;
+        document.getElementById("livevideo").disabled = false; 
+        document.getElementById("nameViewer").innerHTML ="Heat Map";
+        need_show_heatmap = true;
+        clear();
+        show_heatmap();
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+/*
+    DEMO STYLE
+*/
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #eeeeee;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 10px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-center
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: center;
+    text-align: center;
+    overflow: visible;
+    height: 0;
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 10px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.background{
+    background-image: url("../img/bureau.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #2196a8;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #2196a8;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #444;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    padding-top:5px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.alignleft {
+    margin:0px;
+    float: left;
+}
+.alignright {
+    margin:0px;
+    float: right;
+}
+.text-align-right{
+    text-align: right;
+}
+.text-align-center{
+    text-align: center;
+}
+.text-align-left{
+    text-align: left;
+}
+/* ---------------------------------------------------
+    CARD BOX
+----------------------------------------------------- */
+.card {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.row-card-info{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.card-show{
+    padding:0px;
+    margin:0px;
+}
+
+.card-show{
+    padding:0px;
+    margin:0px;
+}
+
+.icon-card{
+    color : #ffffff;
+    display : block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 45px;
+    width: 100%;
+}
+
+.pd-0{
+    padding:0px;
+}
+.pd-top-10{
+    padding-top:20px;
+}
+.mg-top-10{ margin-top: 10px;}
+.mg-top-20{ margin-top: 20px;}
+.mg-top-30{ margin-top: 30px;}
+.mg-left-10{
+    margin-left: 10px;
+}
+.pd-left-10{
+    padding-left: 10px;
+}
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+.bg-1{
+    background-color :  #a561bf;
+}
+.bg-2{
+    background-color :  #a32105;
+}
+.bg-3{
+    background-color :  #a561bf;
+}
+.bg-4{
+    background-color :  #4061bf;
+}
+.bg-5{
+    background-color :  #406135;
+}
+.bg-6{
+    background-color :  #bd3e05;
+}
+
+.texte-white{
+    color: #fff;
+    font-size:20px
+}
+.texte-grey{
+    color: #aaa;
+}
